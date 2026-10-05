@@ -1,0 +1,16 @@
+services:
+  reveal:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: tittytvvister/reveal.js:local
+    container_name: revealjs
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5173:5173"
+    volumes:
+      - .:/app
+      - reveal_node_modules:/app/node_modules
+
+volumes:
+  reveal_node_modules:
